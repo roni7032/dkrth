@@ -1,0 +1,22 @@
+create table user(
+	id bigint auto_increment,
+	nama_lengkap varchar(50) not null,
+	username varchar(50) not null unique key,
+	password varchar(200) null,
+	foto varchar(200) null,
+	keterangan text,
+	primary key(id)
+)engine=innoDB;
+create table aktivitas(
+	id bigint auto_increment,
+	id_user bigint,
+	tgl date not null,
+	aktivitas text null,
+	waktu_pelaksanaan int not null,
+	catatan text null,
+	foto_aktivitas varchar(200) null,
+	status int not null,
+	primary key(id)
+)engine=innoDB;
+
+ALTER TABLE `user` ADD `role` ENUM('admin','user') NOT NULL DEFAULT 'user' AFTER `keterangan`;
